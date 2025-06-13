@@ -147,7 +147,7 @@ def set_desktop_wallpaper(image_path):
         
         methods = [
             lambda: subprocess.run(['osascript', '-e', applescript], check=True),
-            lambda: subprocess.run(f'sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "UPDATE data SET value = \'{image_path}\';" && killall Dock', shell=True, check=True),
+            lambda: subprocess.run(f'sqlite3 ~/Library/Application\\ Support/Dock/desktoppicture.db "UPDATE data SET value = \'{image_path}\';" && killall Dock', shell=True, check=True),
             lambda: subprocess.run(['defaults', 'write', 'com.apple.desktop', 'Background', '-dict-add', 'Changes', '-string', image_path], check=True),
             lambda: subprocess.run(['killall', 'Dock'], check=False)
         ]
