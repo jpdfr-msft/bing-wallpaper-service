@@ -1,0 +1,29 @@
+name: Manual Test Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Generate test artifacts
+        run: |
+          echo "This is a test release" > test.txt
+        
+      - name: Create Test Release
+        id: test_release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            test.txt
+            bing_wallpaper.py
+          tag_name: test-release-${{ github.run_number }}
+          name: Test Release ${{ github.run_number }}
+          draft: false
+          prerelease: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
