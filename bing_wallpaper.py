@@ -30,7 +30,7 @@ import requests
 import plistlib
 import sys
 
-CURRENT_VERSION = "1.0.0"  # Update this version when releasing a new version
+CURRENT_VERSION = "1.0.1"  # Update this version when releasing a new version
 REPO_URL = "https://api.github.com/repos/jpdfr-msft/bing-wallpaper-service/releases/latest"
 
 def setup_logging():
